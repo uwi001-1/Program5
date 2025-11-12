@@ -148,6 +148,45 @@ bool AirshipOrderList::removeDelivery(string szCust, string szItm)
     }
     return false;
 }
+/*****
+//if want to delete many of the delivery with the same customer name and item name 
+bool AirshipOrderList::removeDelivery(string szCust, string szItm)
+{
+    Delivery* pCurrent = pHead;
+    Delivery* pPrevious = nullptr;
+
+    bool found = false;
+
+    // loop through the list
+    while(pCurrent!= nullptr)
+    {
+        if(pCurrent->szName == szCust && pCurrent->szItem == szItm)
+        {
+            Delivery* pTemp = pCurrent;
+            Delivery* pNextNode = pCurrent->pNext;
+
+            //if the first node is the delivery
+            if(pPrevious == nullptr)
+            {
+                pHead = pCurrent->pNext;
+            }
+            //if list has more than one delivery
+            else
+            {
+                pPrevious->pNext = pCurrent->pNext;
+                
+            }
+            delete pTemp;
+            found = true;
+
+            pCurrent = pNextNode;
+        }
+        pPrevious = pCurrent;
+        pCurrent = pCurrent->pNext;
+    }
+    return found;
+}
+******/
 
 
 /*********************************************************************
